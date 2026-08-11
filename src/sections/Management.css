@@ -1,0 +1,76 @@
+.office-fns {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--line2);
+  border: 1px solid var(--line2);
+  margin-bottom: 56px;
+}
+
+.office-fn {
+  background: var(--bg);
+  padding: 30px 26px;
+}
+
+.office-fn__title {
+  font-size: 15.5px;
+  color: var(--strong);
+  margin-bottom: 12px;
+}
+
+.office-fn__detail {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+/* ---- Data → decision → output ------------------------------------- */
+
+.tower {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: stretch;
+}
+
+.tower__cell {
+  border: 1px solid var(--line4);
+  padding: 28px;
+}
+
+.tower__cell--hub {
+  border-color: var(--acc40);
+  background: var(--acc7);
+}
+
+.tower__label {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.tower__body {
+  font-size: 14.5px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.tower__cell--hub .tower__body {
+  color: var(--accsoft);
+}
+
+@media (max-width: 1100px) {
+  .office-fns {
+    grid-template-columns: 1fr 1fr;
+  }
+  .tower {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .office-fns {
+    grid-template-columns: 1fr;
+  }
+}

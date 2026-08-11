@@ -1,0 +1,88 @@
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+/* Each pillar dims until selected; the accent rule fills across the
+   dwell time so the rotation reads as a progress bar. */
+.pillar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 26px 0 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.pillar__track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--line5);
+}
+
+.pillar__fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: var(--accent);
+  width: 0;
+  transition: width 300ms linear;
+}
+
+.pillar--active .pillar__fill {
+  width: 100%;
+  transition: width 3400ms linear;
+}
+
+.pillar__kicker {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  margin-bottom: 14px;
+  color: var(--faint);
+  transition: color 400ms ease;
+}
+
+.pillar__title {
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--faint);
+  transition: color 400ms ease;
+}
+
+.pillar__body {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--faint);
+  transition: color 400ms ease;
+}
+
+.pillar--active .pillar__kicker {
+  color: var(--accent);
+}
+.pillar--active .pillar__title {
+  color: var(--strong);
+}
+.pillar--active .pillar__body {
+  color: var(--muted);
+}
+
+.exec-summary__message {
+  margin-top: 56px;
+}
+
+@media (max-width: 1100px) {
+  .pillars {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}

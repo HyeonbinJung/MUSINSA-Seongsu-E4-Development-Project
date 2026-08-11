@@ -1,0 +1,162 @@
+/* ---- Three-phase exit framework ----------------------------------- */
+
+.exit-phases {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line2);
+  border: 1px solid var(--line2);
+}
+
+.exit-phase {
+  background: var(--bg);
+  padding: 36px 30px;
+}
+
+.exit-phase__years {
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.exit-phase__title {
+  font-family: var(--serif);
+  font-size: 23px;
+  font-weight: 600;
+  margin-bottom: 22px;
+}
+
+.exit-phase__point {
+  font-size: 15px;
+  color: var(--muted);
+  padding: 9px 0;
+  border-bottom: 1px solid var(--line6);
+}
+
+.exit-phase__result {
+  margin-top: 24px;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  color: var(--accsoft);
+}
+
+/* ---- Buyer universe + timeline ------------------------------------ */
+
+.exit-strategy__buyers {
+  margin-top: 48px;
+}
+
+.buyer {
+  border-top: 1px solid var(--line4);
+  padding-top: 18px;
+  margin-bottom: 22px;
+}
+
+.buyer:last-child {
+  margin-bottom: 0;
+}
+
+.buyer__label {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.buyer__body {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+.timeline__row {
+  display: grid;
+  grid-template-columns: 88px 1fr;
+  gap: 20px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.timeline__when {
+  font-family: var(--serif);
+  font-size: 16px;
+  color: var(--accent);
+}
+
+.timeline__phase {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  color: var(--strong);
+  margin-bottom: 5px;
+}
+
+.timeline__detail {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+/* ---- Exit value modeling ------------------------------------------ */
+
+.exit-value__grid {
+  --stat-cols: 4;
+  margin-bottom: 20px;
+}
+
+.exit-value__footnote {
+  margin-bottom: 56px;
+}
+
+/* The `.sens__*` cap-rate matrix lives in base.css — it is shared with
+   the Equity IRR sensitivity table in section VII. */
+
+/* ---- Spot transaction reference ----------------------------------- */
+
+.exit-ref__row {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  padding: 16px 20px;
+  border-top: 1px solid var(--line3);
+  font-size: 15px;
+}
+
+.exit-ref__row--head {
+  padding: 14px 20px;
+  background: var(--tint);
+  border-top: 0;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--dim);
+}
+
+.exit-ref__label {
+  color: var(--soft);
+}
+
+.exit-ref__pyeong {
+  color: var(--muted);
+}
+
+.exit-ref__won {
+  color: var(--strong);
+}
+
+.exit-ref__note {
+  margin-top: 20px;
+}
+
+@media (max-width: 1100px) {
+  .exit-phases {
+    grid-template-columns: 1fr;
+  }
+  .exit-value__grid {
+    --stat-cols: 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .exit-value__grid {
+    --stat-cols: 1;
+  }
+}

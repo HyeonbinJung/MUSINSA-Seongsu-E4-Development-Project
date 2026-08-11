@@ -1,0 +1,20 @@
+{
+  "name": "e4-investment-site",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "MUSINSA Seongsu E4 Development Project — Investment Proposal (React)",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^5.4.11"
+  }
+}

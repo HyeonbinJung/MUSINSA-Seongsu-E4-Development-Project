@@ -1,0 +1,189 @@
+.risk__top {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 56px;
+}
+
+.risk__sens-note {
+  margin-top: 20px;
+}
+
+/* ---- Exit waterfall ------------------------------------------------ */
+
+.waterfall__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.waterfall__label {
+  font-size: 15.5px;
+  color: var(--soft);
+}
+
+.waterfall__value {
+  font-size: 19px;
+  color: var(--strong);
+}
+
+.waterfall__value--muted {
+  color: var(--muted);
+}
+
+.waterfall__value--accent {
+  color: var(--accent);
+}
+
+.waterfall__figures {
+  margin-top: 26px;
+  display: flex;
+  gap: 36px;
+}
+
+.waterfall__figure {
+  font-size: 24px;
+  color: var(--strong);
+}
+
+.waterfall__figure-label {
+  font-size: 11px;
+  color: var(--dim);
+  margin-top: 6px;
+  letter-spacing: 0.1em;
+}
+
+/* ---- Scenario matrix ----------------------------------------------- */
+
+.sub-lead--matrix {
+  margin-bottom: 36px;
+}
+
+.scenario__row {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+}
+
+.scenario__row--head {
+  padding: 14px 24px;
+  background: var(--tint);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--dim);
+  text-transform: uppercase;
+}
+
+.scenario__row--body {
+  padding: 15px 24px;
+  border-top: 1px solid var(--line3);
+  font-size: 15px;
+  transition: background 200ms ease;
+}
+
+@media (hover: hover) {
+  .scenario__row--body:hover {
+    background: var(--acc6);
+  }
+}
+
+.scenario__metric {
+  color: var(--soft);
+}
+
+.scenario__base {
+  color: var(--strong);
+}
+
+.scenario__alt {
+  color: var(--muted);
+}
+
+.risk__matrix-note {
+  margin-top: 20px;
+}
+
+/* ---- Risk register -------------------------------------------------- */
+
+.register__row {
+  display: grid;
+  grid-template-columns: 0.9fr 0.5fr 1.2fr 1.1fr 1.5fr;
+  gap: 20px;
+}
+
+.register__row--head {
+  padding: 14px 24px;
+  background: var(--tint);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--dim);
+  text-transform: uppercase;
+}
+
+.register__row--body {
+  padding: 22px 24px;
+  border-top: 1px solid var(--line3);
+  font-size: 14px;
+  line-height: 1.7;
+  transition: background 200ms ease;
+}
+
+@media (hover: hover) {
+  .register__row--body:hover {
+    background: var(--acc6);
+  }
+}
+
+.register__risk {
+  font-size: 15.5px;
+  color: var(--strong);
+}
+
+.register__impact {
+  color: var(--accent);
+  letter-spacing: 0.08em;
+}
+
+.register__muted {
+  color: var(--muted);
+}
+
+.register__mitigation {
+  color: var(--soft);
+}
+
+.risk__philosophy {
+  margin-top: 32px;
+}
+
+@media (max-width: 1100px) {
+  .risk__top {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .register__row {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 20px;
+  }
+  .register__row--head {
+    display: none;
+  }
+  .register__muted,
+  .register__mitigation {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .scenario__row {
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    font-size: 13px;
+  }
+  .scenario__row--head,
+  .scenario__row--body {
+    padding: 12px;
+  }
+  .register__row {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,410 @@
+/* ---- Vertical retail stack ---------------------------------------- */
+
+.floor-stack {
+  margin-bottom: 64px;
+}
+
+.floor {
+  display: grid;
+  grid-template-columns: 120px 1fr 220px;
+  gap: 24px;
+  align-items: center;
+  padding: 22px 26px;
+  border-bottom: 1px solid var(--line3);
+  transition: background 200ms ease;
+}
+
+.floor:last-child {
+  border-bottom: 0;
+}
+
+@media (hover: hover) {
+  .floor:hover {
+    background: var(--acc6);
+  }
+}
+
+.floor__label {
+  font-family: var(--serif);
+  font-size: 20px;
+  color: var(--accent);
+}
+
+.floor__name {
+  font-size: 17px;
+  color: var(--strong);
+  margin-bottom: 6px;
+}
+
+.floor__detail {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.floor__metric-wrap {
+  text-align: right;
+}
+
+.floor__metric {
+  font-family: var(--serif);
+  font-size: 19px;
+  color: var(--text);
+}
+
+.floor__metric-label {
+  font-size: 11px;
+  color: var(--dim);
+  margin-top: 5px;
+  letter-spacing: 0.08em;
+}
+
+/* ---- Smart operations trio ---------------------------------------- */
+
+.smart-ops {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-bottom: 44px;
+}
+
+.smart-op {
+  border-top: 2px solid var(--line5);
+  padding-top: 24px;
+}
+
+.smart-op__label {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.smart-op__body {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+/* ---- Image cards --------------------------------------------------- */
+
+.sub-lead--wide {
+  max-width: 82ch;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.card {
+  border: 1px solid var(--line2);
+  display: flex;
+  flex-direction: column;
+}
+
+.card__media {
+  height: 230px;
+  position: relative;
+}
+
+.card__media--short {
+  height: 190px;
+}
+
+.card__foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 14px;
+  padding: 15px 20px;
+  background: var(--bg2);
+}
+
+.card__foot--stacked {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 16px 20px;
+  height: 74px;
+}
+
+.card__title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: var(--strong);
+  white-space: nowrap;
+}
+
+.card__detail {
+  font-size: 13.5px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* ---- Operating concept blocks -------------------------------------- */
+
+.op-blocks {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line2);
+  border: 1px solid var(--line2);
+  margin-bottom: 32px;
+}
+
+.op-block {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 26px;
+  border: 0;
+  background: var(--bg);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background 500ms ease;
+}
+
+.op-block--active {
+  background: var(--acc10);
+}
+
+.op-block__fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: var(--accent);
+  transition: width 300ms linear;
+}
+
+.op-block--active .op-block__fill {
+  width: 100%;
+  transition: width 3200ms linear;
+}
+
+.op-block__index {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  margin-bottom: 12px;
+  color: var(--faint);
+  transition: color 400ms ease;
+}
+
+.op-block__title {
+  font-size: 16px;
+  margin-bottom: 18px;
+  color: var(--faint);
+  transition: color 400ms ease;
+}
+
+.op-block__line {
+  font-size: 14.5px;
+  line-height: 1.75;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line6);
+  color: var(--faint);
+  transition: color 400ms ease;
+}
+
+.op-block--active .op-block__index {
+  color: var(--accent);
+}
+.op-block--active .op-block__title {
+  color: var(--strong);
+}
+.op-block--active .op-block__line {
+  color: var(--muted);
+}
+
+/* ---- Floor plan & zoning ------------------------------------------- */
+
+.floorplan {
+  display: grid;
+  grid-template-columns: 1.35fr 0.65fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.floorplan__figure {
+  border: 1px solid var(--line2);
+  background: var(--strong);
+  padding: 16px;
+}
+
+.floorplan__figure img {
+  width: 100%;
+  display: block;
+}
+
+.floorplan__kicker {
+  margin-bottom: 18px;
+}
+
+.floorplan__kicker--rules {
+  margin-top: 36px;
+  margin-bottom: 16px;
+}
+
+.zoning {
+  margin-bottom: 0;
+}
+
+.zoning__row {
+  display: grid;
+  grid-template-columns: 60px 1.2fr 60px 60px 60px;
+  gap: 12px;
+}
+
+.zoning__row--head {
+  padding: 13px 20px;
+  background: var(--tint);
+  font-size: 11.5px;
+  letter-spacing: 0.1em;
+  color: var(--dim);
+}
+
+.zoning__row--body {
+  padding: 15px 20px;
+  border-top: 1px solid var(--line3);
+  font-size: 14.5px;
+  transition: background 200ms ease;
+}
+
+@media (hover: hover) {
+  .zoning__row--body:hover {
+    background: var(--acc6);
+  }
+}
+
+.zoning__floor {
+  font-family: var(--serif);
+  color: var(--accent);
+}
+
+.zoning__mix {
+  color: var(--muted);
+}
+
+.zoning__pct {
+  color: var(--text);
+}
+
+.zoning__rule {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--muted);
+  padding: 13px 0;
+  border-bottom: 1px solid var(--line3);
+}
+
+.floorplan__note {
+  font-size: 13px;
+  margin-top: 18px;
+}
+
+/* ---- Customer flow -------------------------------------------------- */
+
+.flow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+.flow__step {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.flow__chip {
+  padding: 12px 22px;
+  font-size: 15px;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--line2);
+}
+
+.flow__chip--on {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.flow__arrow {
+  color: var(--dim);
+  font-size: 15px;
+}
+
+.flow__logic {
+  margin-bottom: 56px;
+}
+
+.logic__row {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 24px;
+  padding: 18px 0;
+  border-top: 1px solid var(--line3);
+}
+
+.logic__title {
+  font-size: 15px;
+  color: var(--strong);
+}
+
+.logic__detail {
+  font-size: 14.5px;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+/* ---- Responsive ----------------------------------------------------- */
+
+@media (max-width: 1100px) {
+  .floor {
+    grid-template-columns: 84px 1fr;
+    gap: 16px;
+  }
+  .floor__metric-wrap {
+    grid-column: 2;
+    text-align: left;
+  }
+  .smart-ops,
+  .cards,
+  .op-blocks {
+    grid-template-columns: 1fr;
+  }
+  .card__foot--stacked {
+    height: auto;
+  }
+  .floorplan {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .logic__row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 640px) {
+  .zoning__row {
+    grid-template-columns: 44px 1fr 40px 40px 40px;
+    gap: 6px;
+  }
+  .zoning__row--head,
+  .zoning__row--body {
+    padding: 12px;
+    font-size: 13px;
+  }
+  .card__title,
+  .card__detail {
+    white-space: normal;
+  }
+}

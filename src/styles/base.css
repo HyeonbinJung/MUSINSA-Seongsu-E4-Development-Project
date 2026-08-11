@@ -1,0 +1,380 @@
+/* ------------------------------------------------------------------
+   Reset, page shell, and the primitives shared across every section:
+   section headers, stat grids, data tables, key-message callouts.
+   ------------------------------------------------------------------ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  /* iOS Safari and Chrome on Android inflate text in narrow columns by
+     default. With the viewport pinned to 1440px that inflation would
+     break the desktop proportions, so opt out on both engines. */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+  /* The fixed viewport already fits the content exactly; this only guards
+     against a stray wide child causing a horizontal rubber-band on iOS.
+     `clip` rather than `hidden` on purpose — `hidden` turns body into a
+     scroll container, which breaks the sticky header. Older Safari
+     ignores `clip` and simply does not clip, which is harmless. */
+  overflow-x: clip;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--accsoft);
+}
+
+::selection {
+  background: var(--sel);
+  color: var(--strong);
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+button {
+  /* Safari on iOS otherwise imposes its own control chrome and radius. */
+  -webkit-appearance: none;
+  appearance: none;
+  color: inherit;
+}
+
+/* No grey flash box over nav items and table rows when tapped. */
+@media (hover: none) {
+  a,
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+.app {
+  background: var(--bg);
+  min-height: 100vh;
+  font-family: var(--sans);
+  color: var(--text);
+}
+
+/* iOS/Android address bars make 100vh taller than the visible area. */
+@supports (min-height: 100dvh) {
+  .app {
+    min-height: 100dvh;
+  }
+}
+
+.container {
+  max-width: var(--page-max);
+  margin: 0 auto;
+}
+
+.section {
+  padding: 88px 40px 104px;
+}
+
+/* ---- Section headings ------------------------------------------ */
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  margin-bottom: 14px;
+}
+
+.section-head__numeral {
+  font-family: var(--serif);
+  font-size: 15px;
+  color: var(--accent);
+}
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.34em;
+  color: var(--dim);
+  text-transform: uppercase;
+}
+
+.section-title {
+  font-family: var(--serif);
+  font-size: 46px;
+  line-height: 1.2;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.section-lead {
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--muted);
+  max-width: 70ch;
+  margin-bottom: 64px;
+}
+
+.sub-title {
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.sub-title--sm {
+  font-size: 28px;
+}
+
+.sub-title--xs {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.sub-lead {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--muted);
+  max-width: 78ch;
+  margin-bottom: 40px;
+}
+
+/* A horizontally-ruled sub-block inside a section. */
+.block {
+  margin-top: 88px;
+  border-top: 1px solid var(--line4);
+  padding-top: 56px;
+}
+
+.block--tight {
+  margin-top: 80px;
+}
+
+/* ---- Small labels ---------------------------------------------- */
+
+.kicker {
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+.kicker--wide {
+  letter-spacing: 0.2em;
+}
+
+.note {
+  font-size: 14px;
+  color: var(--dim);
+  line-height: 1.75;
+}
+
+.note--lg {
+  font-size: 13.5px;
+}
+
+/* ---- Key message callout --------------------------------------- */
+
+.key-message {
+  border-left: 2px solid var(--accent);
+  padding: 18px 26px;
+  background: var(--acc6);
+}
+
+.key-message__label {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.key-message__body {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+/* ---- Stat grid (hairline-separated metric cells) ---------------- */
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--stat-cols, 5), 1fr);
+  gap: 1px;
+  background: var(--line2);
+  border: 1px solid var(--line2);
+}
+
+.stat {
+  background: var(--bg);
+  padding: 28px 24px;
+}
+
+.stat--tinted {
+  background: var(--acc6);
+}
+
+.stat__value {
+  font-family: var(--serif);
+  font-size: 30px;
+  color: var(--strong);
+}
+
+.stat__value--accent {
+  color: var(--accent);
+}
+
+.stat__label {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--dim);
+  margin-top: 8px;
+}
+
+.stat__label--caps {
+  text-transform: uppercase;
+}
+
+/* Label-above-value variant used in the exit-value strip. */
+.stat--stacked .stat__label {
+  margin: 0 0 12px;
+  letter-spacing: 0.14em;
+}
+
+/* ---- Generic bordered data table ------------------------------- */
+
+.table {
+  border: 1px solid var(--line2);
+}
+
+.table__head {
+  background: var(--tint);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--dim);
+  text-transform: uppercase;
+  padding: 14px 24px;
+}
+
+.table__row {
+  border-top: 1px solid var(--line3);
+}
+
+/* Row tints are gated on a real pointer. On touch the tint would stick
+   after a tap and read as a selected row. Same guard is applied to every
+   row/cell hover across the section stylesheets. */
+@media (hover: hover) {
+  .table__row--hover:hover {
+    background: var(--acc6);
+  }
+}
+
+.num {
+  font-family: var(--serif);
+}
+
+.right {
+  text-align: right;
+}
+
+/* ---- Cap-rate sensitivity matrix -------------------------------
+   Used by both the Gross Exit Value matrix (IV) and the Equity IRR
+   matrix (VII); identical shape, different figures.
+   ---------------------------------------------------------------- */
+
+.sens__row {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1fr;
+  padding: 16px 20px;
+  border-top: 1px solid var(--line3);
+  font-size: 16px;
+  font-family: var(--serif);
+}
+
+.sens__row--head {
+  padding: 14px 20px;
+  background: var(--tint);
+  border-top: 0;
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--dim);
+}
+
+.sens__row--base {
+  background: var(--acc10);
+}
+
+.sens__cap {
+  color: var(--accent);
+}
+
+.sens__muted {
+  color: var(--muted);
+}
+
+.sens__strong {
+  color: var(--strong);
+}
+
+/* ---- Two-column split ------------------------------------------ */
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+}
+
+/* ---- Responsive -------------------------------------------------
+   These no longer fire on phones — the viewport meta pins the layout
+   width to 1440px, so a phone always matches the desktop breakpoint.
+   They remain as (a) the layout for a narrowed desktop window and
+   (b) a fallback for in-app webviews that force `width=device-width`.
+   ------------------------------------------------------------------ */
+
+@media (max-width: 1100px) {
+  .section {
+    padding: 64px 24px 76px;
+  }
+  .section-title {
+    font-size: 36px;
+  }
+  .sub-title {
+    font-size: 26px;
+  }
+  .split {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  /* Sections may narrow further via their own --stat-cols override. */
+  .stat-grid {
+    --stat-cols: 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 48px 18px 60px;
+  }
+  .section-title {
+    font-size: 30px;
+  }
+  .stat-grid {
+    --stat-cols: 1;
+  }
+}

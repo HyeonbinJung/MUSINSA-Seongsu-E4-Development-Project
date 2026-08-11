@@ -1,0 +1,99 @@
+/* ------------------------------------------------------------------
+   Design tokens — dark is the default, light is opted into via
+   <html data-theme="light">. Every colour used anywhere in the app
+   resolves through one of these variables.
+   ------------------------------------------------------------------ */
+
+:root {
+  --bg: #061626;
+  --bg2: #08203a;
+  --text: #e8eef4;
+  --muted: #a9bccd;
+  --dim: #7d93a8;
+  --soft: #cfd9e3;
+  --accsoft: #cfe1f2;
+  --accent: #8ab4dc;
+  --faint: #5c7285;
+  --strong: #ffffff;
+  --sel: #1e4d7b;
+  --head: rgba(6, 22, 38, 0.94);
+  --tint: rgba(255, 255, 255, 0.05);
+  --line: rgba(255, 255, 255, 0.1);
+  --line2: rgba(255, 255, 255, 0.12);
+  --line3: rgba(255, 255, 255, 0.09);
+  --line4: rgba(255, 255, 255, 0.14);
+  --line5: rgba(255, 255, 255, 0.22);
+  --line6: rgba(255, 255, 255, 0.07);
+  --acc6: rgba(138, 180, 220, 0.06);
+  --acc7: rgba(138, 180, 220, 0.07);
+  --acc9: rgba(138, 180, 220, 0.09);
+  --acc10: rgba(138, 180, 220, 0.1);
+  --acc14: rgba(138, 180, 220, 0.14);
+  --acc40: rgba(138, 180, 220, 0.45);
+
+  --serif: 'Noto Serif KR', serif;
+  --sans: 'IBM Plex Sans KR', sans-serif;
+  --page-max: 1360px;
+}
+
+html[data-theme='light'] {
+  --bg: #f4f6f9;
+  --bg2: #ffffff;
+  --text: #0e2033;
+  --muted: #4d6376;
+  --dim: #6c8093;
+  --soft: #23394d;
+  --accsoft: #134066;
+  --accent: #1d5b8f;
+  --faint: #8a99a8;
+  --strong: #071a2b;
+  --sel: #bcd6ec;
+  --head: rgba(244, 246, 249, 0.94);
+  --tint: rgba(14, 32, 51, 0.04);
+  --line: rgba(14, 32, 51, 0.12);
+  --line2: rgba(14, 32, 51, 0.14);
+  --line3: rgba(14, 32, 51, 0.1);
+  --line4: rgba(14, 32, 51, 0.16);
+  --line5: rgba(14, 32, 51, 0.22);
+  --line6: rgba(14, 32, 51, 0.08);
+  --acc6: rgba(29, 91, 143, 0.05);
+  --acc7: rgba(29, 91, 143, 0.06);
+  --acc9: rgba(29, 91, 143, 0.08);
+  --acc10: rgba(29, 91, 143, 0.09);
+  --acc14: rgba(29, 91, 143, 0.12);
+  --acc40: rgba(29, 91, 143, 0.4);
+}
+
+/* ---- Section entrance animation -------------------------------- */
+
+@keyframes omReveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Direct children of a section container stagger in on page change.
+   The page container is keyed by route, so this replays on navigation. */
+.section > .container > * {
+  animation: omReveal 700ms cubic-bezier(0.2, 0.7, 0.3, 1) both;
+}
+.section > .container > *:nth-child(1) { animation-delay: 0ms; }
+.section > .container > *:nth-child(2) { animation-delay: 70ms; }
+.section > .container > *:nth-child(3) { animation-delay: 140ms; }
+.section > .container > *:nth-child(4) { animation-delay: 210ms; }
+.section > .container > *:nth-child(5) { animation-delay: 280ms; }
+.section > .container > *:nth-child(6) { animation-delay: 350ms; }
+.section > .container > *:nth-child(7) { animation-delay: 420ms; }
+.section > .container > *:nth-child(8) { animation-delay: 490ms; }
+.section > .container > *:nth-child(n + 9) { animation-delay: 560ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .section > .container > * {
+    animation: none;
+  }
+}

@@ -1,0 +1,137 @@
+/* ---- Sources & Uses ---------------------------------------------- */
+
+.su {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  margin-bottom: 64px;
+}
+
+.su__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 16px;
+}
+
+.su__label {
+  color: var(--soft);
+}
+
+.su__value {
+  color: var(--strong);
+}
+
+.su__pair {
+  display: flex;
+  gap: 22px;
+  align-items: baseline;
+}
+
+.su__pct {
+  font-size: 13px;
+  color: var(--dim);
+  width: 52px;
+  text-align: right;
+}
+
+.su__total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 18px 0;
+  font-size: 17px;
+}
+
+.su__total-label {
+  color: var(--strong);
+  letter-spacing: 0.02em;
+}
+
+.su__total-value {
+  font-size: 22px;
+  color: var(--accent);
+}
+
+/* ---- Capital stack bar -------------------------------------------- */
+
+.capstack {
+  display: flex;
+  height: 56px;
+  border: 1px solid var(--line2);
+  margin-bottom: 16px;
+}
+
+.capstack__equity,
+.capstack__debt {
+  display: flex;
+  align-items: center;
+  padding: 0 22px;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+}
+
+.capstack__equity {
+  width: 41.9%;
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.capstack__debt {
+  width: 58.1%;
+  background: var(--acc14);
+  color: var(--accsoft);
+}
+
+.capstack__notes {
+  display: grid;
+  grid-template-columns: 41.9% 58.1%;
+  font-size: 13.5px;
+  color: var(--dim);
+  margin-bottom: 72px;
+}
+
+.capstack__note {
+  padding-right: 22px;
+}
+
+.capstack__note--right {
+  padding-left: 22px;
+  padding-right: 0;
+}
+
+/* ---- Return profile ----------------------------------------------- */
+
+.structure__return-title {
+  margin-bottom: 32px;
+}
+
+.structure__footnote {
+  margin-top: 28px;
+}
+
+@media (max-width: 1100px) {
+  .su {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .capstack {
+    height: auto;
+    flex-direction: column;
+  }
+  .capstack__equity,
+  .capstack__debt {
+    width: 100%;
+    padding: 14px 18px;
+  }
+  .capstack__notes {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .capstack__note,
+  .capstack__note--right {
+    padding: 0;
+  }
+}

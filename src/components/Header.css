@@ -1,0 +1,162 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--head);
+  /* Safari (iOS and macOS) still needs the prefix for the blurred bar. */
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+
+.header__inner {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 10px 40px;
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+/* ---- Brand ------------------------------------------------------ */
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--strong);
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+}
+
+.brand__top {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.brand__name {
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.brand__suffix {
+  font-size: 9px;
+  letter-spacing: 0.34em;
+  color: var(--dim);
+  text-transform: uppercase;
+}
+
+.brand__project {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+/* ---- Nav -------------------------------------------------------- */
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.nav__item {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 7px 8px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-radius: 2px;
+  background: none;
+  font-family: inherit;
+  font-size: 11.5px;
+  white-space: nowrap;
+  cursor: pointer;
+  color: var(--muted);
+  transition: color 300ms ease, border-color 300ms ease, background 200ms ease;
+}
+
+@media (hover: hover) {
+  .nav__item:hover {
+    background: var(--acc9);
+  }
+}
+
+.nav__item--active {
+  color: var(--strong);
+  border-bottom-color: var(--accent);
+}
+
+.nav__numeral {
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  opacity: 0.75;
+  font-family: var(--serif);
+}
+
+/* ---- Theme toggle ----------------------------------------------- */
+
+.theme-toggle {
+  margin-left: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border: 1px solid var(--acc40);
+  border-radius: 2px;
+  background: none;
+  font-family: inherit;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--accsoft);
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background 200ms ease;
+}
+
+@media (hover: hover) {
+  .theme-toggle:hover {
+    background: var(--acc9);
+  }
+}
+
+.theme-toggle__dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: inline-block;
+}
+
+@media (max-width: 1100px) {
+  .header__inner {
+    padding: 10px 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .header__inner {
+    padding: 12px 18px;
+  }
+  .nav {
+    justify-content: flex-start;
+  }
+  .theme-toggle {
+    margin-left: 6px;
+  }
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <!--
+      Layout viewport is pinned to the desktop content width (1360px + 40px
+      gutters) so phones render the PC layout and scale it down to fit,
+      instead of reflowing into a stacked mobile layout. Desktop browsers
+      ignore this tag entirely, so the responsive rules in CSS still apply
+      to a resized desktop window.
+
+      Deliberately no `initial-scale` — that would override the auto
+      shrink-to-fit and leave the page zoomed in. Deliberately no
+      `maximum-scale` / `user-scalable=no` — pinch-zoom must stay available.
+    -->
+    <meta name="viewport" content="width=1440" />
+    <title>E4 Development Investment Proposal · Mastern Investment Management</title>
+    <meta
+      name="description"
+      content="Seongsu × MUSINSA Master Lease × Institutional Core+ Asset — E4 Development Investment Proposal"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
