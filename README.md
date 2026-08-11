@@ -50,7 +50,33 @@ public/assets/              미디어 5개 (히어로 영상, 층별 도면, zon
 | 인라인 `style` 속성 | CSS 클래스 + 디자인 토큰 |
 | 에디터 props (defaultTheme 등) | `src/config.js` |
 
-반응형 브레이크포인트(1100px / 640px)는 원본에 없던 부분이라 새로 추가했습니다.
+## 모바일 동작
+
+휴대폰에서도 PC와 동일한 레이아웃이 나오도록 `index.html` 의 뷰포트를 `width=1440`
+(콘텐츠 1360px + 좌우 여백 40px)으로 고정했습니다. 브라우저가 그 폭을 화면에 맞게
+축소해서 보여주므로 세로로 쌓이는 모바일 레이아웃으로 리플로우되지 않습니다.
+`<meta viewport>` 는 데스크톱 브라우저가 무시하므로, 창을 좁힌 PC에서는 기존
+브레이크포인트(1100px / 640px)가 그대로 동작합니다.
+
+iOS · Android 공통으로 함께 잡은 것:
+
+| 증상 | 대응 |
+| --- | --- |
+| 좁은 칼럼에서 글자만 커져 비율이 깨짐 | `html { -webkit-text-size-adjust: 100% }` |
+| 탭한 표/행에 hover 배경이 남음 | 행·셀 hover를 전부 `@media (hover: hover)` 로 감쌈 |
+| 탭할 때 회색 하이라이트 박스 | `@media (hover: none)` 에서 `-webkit-tap-highlight-color: transparent` |
+| Safari 헤더 블러 미적용 | `-webkit-backdrop-filter` 병기 |
+| 주소창 때문에 `100vh` 가 화면보다 큼 | `@supports` 로 `100dvh` |
+| 버튼에 iOS 기본 컨트롤 스타일 적용 | `button { -webkit-appearance: none }` |
+
+가로 넘침 방지용 `overflow-x` 는 `hidden` 이 아니라 `clip` 입니다 — `hidden` 은 body를
+스크롤 컨테이너로 만들어 sticky 헤더를 깨뜨립니다.
+
+**트레이드오프**: PC 레이아웃을 그대로 축소하는 방식이라 6인치 화면 기준 배율이
+약 0.27배가 됩니다. 본문 15px는 물리적으로 4px 정도로 보이므로 확대 없이는 읽기
+어렵습니다. 핀치 줌은 의도적으로 막지 않았습니다 (`user-scalable`, `maximum-scale`
+미지정). 가독성이 필요하면 `width=1440` 을 `width=1024` 정도로 낮추거나,
+기존 브레이크포인트를 되살리는 쪽이 낫습니다.
 
 ## 에셋
 
